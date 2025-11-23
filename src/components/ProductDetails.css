@@ -1,0 +1,159 @@
+/* src/components/ProductDetails.css */
+
+/* ... (Keep your existing overlay/modal/close-btn styles the same) ... */
+
+.pd-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.pd-modal {
+  background: #111;
+  width: 100%;
+  max-width: 1100px;
+  height: 85vh; /* Fixed height to keep layout stable */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.pd-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pd-content {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .pd-content {
+    flex-direction: row;
+  }
+}
+
+/* LEFT INFO (Keep exactly as is) */
+.pd-info {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #222;
+}
+/* ... (Keep your .pd-title, .pd-meta, .pd-selector, .pd-add-btn styles here) ... */
+.pd-title { font-size: 2rem; font-weight: 600; margin: 0; }
+.pd-meta { display: flex; gap: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; color: #ccc; }
+.pd-selector p { font-size: 0.9rem; color: #888; margin-bottom: 8px; text-transform: uppercase; }
+.pd-colors { display: flex; gap: 10px; }
+.pd-color-swatch { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #444; cursor: pointer; }
+.pd-sizes { display: flex; flex-wrap: wrap; gap: 10px; }
+.pd-size-btn { background: transparent; border: 1px solid #444; color: #fff; min-width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+.pd-size-btn:hover, .pd-size-btn.active { background: #fff; color: #000; }
+.pd-description { font-size: 0.95rem; line-height: 1.6; color: #aaa; }
+.pd-add-btn { margin-top: auto; background: #fff; color: #000; border: none; padding: 15px; font-weight: 600; cursor: pointer; }
+
+/* ================= RIGHT VISUALS (UPDATED) ================= */
+.pd-visuals {
+  flex: 1.4;
+  background: #050505;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  gap: 20px;
+}
+
+/* 1. MAIN IMAGE: Fits perfectly in the center without cropping */
+.pd-main-image {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pd-main-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Ensures the whole image is visible */
+  display: block;
+}
+
+/* 2. CAROUSEL: Container for small images */
+.pd-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-bottom: 10px;
+}
+
+/* 3. THUMBNAILS: Small, Exact Squares (Cropped) */
+.pd-thumb {
+  width: 60px;  /* Small size (approx 40% relative to larger thumbs) */
+  height: 60px; /* Exact square */
+  
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0.5;
+  transition: all 0.2s;
+  background: #1a1a1a;
+}
+
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops thumbnail to fill the square neatly */
+}
+
+.pd-thumb:hover {
+  opacity: 0.8;
+  border-color: #666;
+  transform: translateY(-2px);
+}
+
+.pd-thumb.active {
+  opacity: 1;
+  border-color: #fff; /* White border for active */
+}
