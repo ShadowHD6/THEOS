@@ -1,79 +1,113 @@
+const importAll = (modules) =>
+  Object.values(modules).map((mod) => mod.default)
+
+const hoodieImages = importAll(
+  import.meta.glob('../assets/Hoodie/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const pufferImages = importAll(
+  import.meta.glob('../assets/Puffer/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const beanieImages = importAll(
+  import.meta.glob('../assets/Beanie/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const socksImages = importAll(
+  import.meta.glob('../assets/Socks/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const jeansImages = importAll(
+  import.meta.glob('../assets/Jeans/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const longImages = importAll(
+  import.meta.glob('../assets/Long/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
+const shirtImages = importAll(
+  import.meta.glob('../assets/Shirt/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+const scarfImages = importAll(
+  import.meta.glob('../assets/Scarf/*.{png,jpg,jpeg,svg}', { eager: true })
+)
+
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import ProductCard from './ProductCard'
 import './Products.css'
-import fashionImg from '../assets/maxresdefault (5).jpg'
-import fushionImg from '../assets/test.jpg'
+// import fashionImg from '../assets/Hoodie_Prv.png'
+// import fushionImg from '../assets/Hoodie_01.png'
 
 // 1. Accept onQuickView as a prop here
 const Products = ({ onQuickView }) => {
   const products = [
     {
       id: 1,
-      name: "Essential Tee",
-      price: "$89",
-      image: fashionImg, 
+      name: "Oversized Denim Hoodie",
+      price: "120 TND",
+      image: hoodieImages[0], 
       // Added multiple images for the carousel
-      images: [fashionImg, fushionImg, fashionImg], 
-      description: "Premium cotton essential tee"
+      images: hoodieImages, 
+      description: "Premium cotton Oversized Washed Denim Unisex Hoodie"
     },
     {
       id: 2,
-      name: "Minimal Hoodie",
-      price: "$149",
-      image: fushionImg,
+      name: "Denim Puffer Jacket",
+      price: "200 TND",
+      image: pufferImages[0],
       // Added multiple images (mixed)
-      images: [fushionImg, fashionImg, fushionImg],
-      description: "Oversized comfort hoodie"
+      images: pufferImages,
+      description: "One of a kind denim puffer jacket"
     },
     {
       id: 3,
-      name: "Classic Jeans",
-      price: "$199",
-      image: "JEANS",
-      // Placeholder strings repeated for now
-      images: ["JEANS", "JEANS", "JEANS"],
-      description: "Tailored denim perfection"
+      name: "Beanie",
+      price: "60 TND",
+      image: beanieImages[0],
+      // Added multiple images (mixed)
+      images: beanieImages,
+      description: "Nice beanie in a classic design Perfect keeping your head and ears warm during winter training."
     },
     {
       id: 4,
-      name: "Urban Jacket",
-      price: "$299",
-      image: "JACKET",
-      images: ["JACKET", "JACKET", "JACKET"],
-      description: "Weather-resistant urban jacket"
+      name: "Socks",
+      price: "60 TND",
+      image: socksImages[0],
+      images: socksImages,
+      description: "3 color Combo Socks for all seasons, The rib edge and support under the foot gives a nice and tight fit. The toe and heel area are the areas who mostly are subjects to wear. Therefore the training socks have been strengthened to give an increased durability"
     },
     {
       id: 5,
-      name: "Comfort Pants",
-      price: "$129",
-      image: "PANTS",
-      images: ["PANTS", "PANTS", "PANTS"],
-      description: "All-day comfort pants"
+      name: "Oversized Jeans",
+      price: "100 TND",
+      image: jeansImages[0],
+      images: jeansImages,
+      description: "The Big Baggy Black jeans feature a distinctive wide cut with raw ripped hemline, intentionally accented with visible edges. Made entirely from 100% cotton black denim and with the utmost attention to detail and our craftsmanship"
     },
     {
       id: 6,
-      name: "Statement Coat",
-      price: "$399",
-      image: "COAT",
-      images: ["COAT", "COAT", "COAT"],
-      description: "Luxury statement coat"
+      name: "CLAVICULE LONG SLEEVE",
+      price: "90 TND",
+      image: longImages[0],
+      images: longImages,
+      description: "A second-skin long-sleeved piece, the Clavicule is crafted from a dense yet supple ribbed jersey, blending the softness of lyocell with the dry structure of cotton."
     },
     {
       id: 7,
-      name: "seven Product",
-      price: "$129",
-      image: "Seven",
-      images: ["Seven", "Seven", "Seven"],
-      description: "All-day comfort pants"
+      name: "Oversized T-Shirt",
+      price: "129 TND",
+      image: shirtImages[0],
+      images: shirtImages,
+      description: "Oversized T-Shirts Heavy Cotton Washed Summer Vintage Tee Loose Fit Short Sleeve Casual Shirts"
     },
     {
       id: 8,
-      name: "eight Product",
-      price: "$399",
-      image: "eight",
-      images: ["eight", "eight", "eight"],
-      description: "Luxury statement coat"
+      name: "Scarf",
+      price: "80 TND",
+      image: scarfImages[0],
+      images: scarfImages,
+      description: "The premium version of the traditional jacquard knit options. Allows for more clarity and cleaner logos compared to the Classic Knit."
     }
   ];
 
