@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import './Hero.css'
-import TheosImage from '../assets/models fashion.jpg'
+import TheosImage from '../assets/AW26.png'
 
 const Hero = () => {
   return (
