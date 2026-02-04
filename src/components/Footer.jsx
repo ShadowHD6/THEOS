@@ -77,7 +77,7 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <p>&copy; 2025 THEOS. All rights reserved.</p>
+          <p>&copy; 2026 THEOS. All rights reserved.</p>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
