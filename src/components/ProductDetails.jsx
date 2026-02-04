@@ -48,7 +48,7 @@ const ProductDetails = ({ product, onClose }) => {
                <div className="pd-selector">
                 <p>Color Range:</p>
                 <div className="pd-colors">
-                  <div className="pd-color-swatch" style={{backgroundColor: '#1a1a1a'}}></div>
+                  <div className="pd-color-swatch" style={{backgroundColor: '#3561f3ff'}}></div>
                   <div className="pd-color-swatch" style={{backgroundColor: '#555'}}></div>
                 </div>
               </div>
