@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import aboutImg from '../assets/About.png'
 import './About.css'
 
 const About = () => {
@@ -40,9 +41,11 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="image-placeholder">
-              <span>CRAFTSMANSHIP</span>
-            </div>
+           <img 
+  src={aboutImg} 
+  alt="THEOS craftsmanship" 
+  className="about-img"
+/>
           </motion.div>
         </div>
       </div>
